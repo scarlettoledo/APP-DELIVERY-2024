@@ -19,7 +19,7 @@ def connect(self):
             self.connection = mysql.connector.connect(
                 host ='192.168.56.101',
                 database='delivery',
-                user='pythonapp';
+                user='pythonapp',
                 password='inacap.2024'
             )
             #En caso de conexión exitosa mostramos un mensaje
