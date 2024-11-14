@@ -17,7 +17,7 @@ class DatabaseConnection:
         if self.connection is None:
             try:
                 self.connection = mysql.connector.connect(
-                    host ='192.168.56.101',
+                    host ='192.168.56.102',
                     database='delivery',
                     user='pythonapp',
                     password='inacap.2024'

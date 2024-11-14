@@ -70,8 +70,10 @@ def main():
 
 
         if opcion == "5":
-        
-        if __name__== "__main__": 
-            main()
+            print("Hasta Luego! ")
+            break
+
+if __name__== "__main__": 
+    main()
 
 
