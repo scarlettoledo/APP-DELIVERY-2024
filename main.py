@@ -12,8 +12,9 @@ def main():
         print("*** Menú principal ***")
         print("1. Agregar tipo de producto")
         print("2. Listar tipo de producto")
-        print("3. Salir")
-
+        print("3. Actualizar")
+        print("4. Eliminar")
+        print("5. Salir")
         #capturamos la opcion seleccionada
         opcion= input("Seleccione una opción: ")
 
@@ -44,12 +45,33 @@ def main():
                     print(f"NOMBRE TIPO: {tipo.nombre}") 
                     print(f"DESCRIPCION: {tipo.descripcion}")
             else:
-                print("No hay registro de tipo de producto") 
+                print("No hay registro de tipo de producto")
+       
+       
+         #En caso de actualizar  
         if opcion == "3":
-            print("Programa finalizado")
+            id = input("Ingrese id de tipo producto a actulizar")
+            nombre =input("Ingrese nuevo nombre: ")
+            descripcion = input("Nueva descripción: ")
+            #Creamos un objeto de la clase TipoProducto
+            tipo_producto = TipoProducto (id=int(id), nombre= nuevo_nombre, descripcion= nueva_descripcion) 
+            #Verificamo si la operacion devuelve true lo cual indica que actualizó registros
+            if operaciones.actualizar(tipo_producto):
+                print("Registro actualizado correctamente")
+            else: 
+                print("No se actualizó ningún registro")
+        #En caso de requerir eliminación
+        if opcion == "4":
+            id=input("Ingrese id de tipo de producto a eliminar: ")
+            if operaciones.eliminar(int(id)): 
+                print("Registro eliminado correctamente")
+            else:
+                print("No fue posible eliminar")
 
 
-if __name__== "__main__": 
-    main()
+        if opcion == "5":
+        
+        if __name__== "__main__": 
+            main()
 
 

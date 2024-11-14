@@ -12,7 +12,10 @@ class TipoProductoOperaciones:
         try: 
             cursor = conexion.cursor() #cursor tiene los objetos de conexión que permite recorrer las tablas
             #Consulta SQL
+
+
             query ="insert into TipoProducto (nombre, descripcion) values (%s,%s)"
+
             #Extraemos valores de un objeto tipo producto
             valores = (tipo_producto.nombre, tipo_producto.descripcion) 
             #Ejecutamos la operación contra la base de datos (insertar)
@@ -29,6 +32,7 @@ class TipoProductoOperaciones:
         finally:
             if cursor:
                 cursor.close()
+
     #Función para obtener datos
     def obtener_datos(self):
         conexion=self.db_conexion.get_connection()
@@ -38,8 +42,38 @@ class TipoProductoOperaciones:
             cursor.execute(query)
             resultados=cursor.fetchall() 
             return[TipoProducto(**resultado) for resultado in resultados]
+        
         except Error as e:
             print(f"Error al consultar datos: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+    #Función para actuaziar datos
+    def actualizar (self, tipo_producto):
+        conexion = self.db_conexion.get_connection()
+        try:
+            cursor = conexion.cursor()
+            query = "update TipoProducto set nombre = %s, descripción=%s where id= %s"
+            valores = (tipo_producto.nombre, tipo_producto.descripcion, tipo_producto.id)
+            cursor.execute(query, valores)
+            conexion.commit()
+            return cursor.rowcount > 0 
+        except Error as e:
+            print(f"Error al actualizar el registro: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+    #Función para eliminar datos
+    def eliminar (self,id):
+        conexion= self.db_conexion.get_connector
+        try:
+            cursor = conexion.cursor()
+            query = "delete from tipoProducto where id = %s"
+            cursor.execute(query,(id))
+            conexion.commit ()
+            return cursor.rowcount ()
+        except Error as e:
+            print(f"Error al eliminar tipo de producto: {e}")
         finally:
             if cursor:
                 cursor.close()
