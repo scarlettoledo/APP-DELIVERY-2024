@@ -53,8 +53,8 @@ class TipoProductoOperaciones:
         conexion = self.db_conexion.get_connection()
         try:
             cursor = conexion.cursor()
-            query = "update TipoProducto set nombre = %s, descripción=%s where id= %s"
-            valores = (tipo_producto.nombre, tipo_producto.descripcion, tipo_producto.id)
+            query = "update TipoProducto set nombre = %s, descripcion=%s where id_tipo_producto= %s"
+            valores = (tipo_producto.nombre, tipo_producto.descripcion, tipo_producto.id_tipo_producto)
             cursor.execute(query, valores)
             conexion.commit()
             return cursor.rowcount > 0 
@@ -64,16 +64,16 @@ class TipoProductoOperaciones:
             if cursor:
                 cursor.close()
     #Función para eliminar datos
-    def eliminar (self,id):
-        conexion= self.db_conexion.get_connector
+    def eliminar (self,id_tipo_producto):
+        conexion= self.db_conexion.get_connection ()
         try:
             cursor = conexion.cursor()
-            query = "delete from tipoProducto where id = %s"
-            cursor.execute(query,(id))
+            query = "delete from TipoProducto where id_tipo_producto = %s"
+            cursor.execute(query,(id_tipo_producto,))
             conexion.commit ()
-            return cursor.rowcount ()
+            return cursor.rowcount
         except Error as e:
-            print(f"Error al eliminar tipo de producto: {e}")
+            print(f"Error al eliminar el tipo de producto: {e}")
         finally:
             if cursor:
                 cursor.close()
