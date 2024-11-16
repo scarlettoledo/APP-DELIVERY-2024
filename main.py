@@ -218,7 +218,7 @@ def main_repartidor():
                     print(f"ID: {repartidor.id}")
                     print(f"Rut: {repartidor.rut}")
                     print(f"Nombre: {repartidor.nombre}")
-                    print(f"Apellido: {repartidor.apellidos}")
+                    print(f"Apellidos: {repartidor.apellidos}")
                     print(f"estado: {repartidor.estado}'")
                                     
             else:
@@ -228,7 +228,7 @@ def main_repartidor():
             id = input("ingrese id del repartidor a actualizar: ")
             nuevo_rut = input("Nuevo rut: ")
             nuevo_nombre = input("Nuevo nombre : ")
-            nuevo_apellidos  = input("Nuevo apellido: ")
+            nuevo_apellidos  = input("Nuevos apellidos: ")
             nuevo_telefono = input("Nuevo telefono: ")
             nuevo_estado = input("Nuevo estado: ")
             repartidor = Repartidor(id = int(id),rut = nuevo_rut, nombre = nuevo_nombre, apellidos = nuevo_apellidos, telefono = nuevo_telefono, estado = nuevo_estado)
