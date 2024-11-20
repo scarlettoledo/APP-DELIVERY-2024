@@ -23,7 +23,7 @@ class TipoProductoOperaciones:
             #Ejecutamos commit o una confirmación (es para confirmar el cambio y que quede actualizado en la base de datos.)
             conexion.commit()
             #Obtenemos el id del registro insertado
-            tipo_producto.id=cursor.lastrowid
+            tipo_producto.id_tipo_producto=cursor.lastrowid
             #Envíamos una confirmación
             print("Tipo de producto se ha ingresado correctamente.")
             return tipo_producto

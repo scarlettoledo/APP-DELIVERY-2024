@@ -13,7 +13,7 @@ class ProductoOperaciones:
             cursor = conexion.cursor() #cursor tiene los objetos de conexión que permite recorrer las tablas
             #Consulta SQL
 
-            query ="insert into Producto (nombre, descripcion, precio, id_tipo_producto, proveedor) values (%s,%s,%s,%s)"
+            query ="insert into Producto (nombre, descripcion, precio, id_tipo_producto) values (%s,%s,%s,%s)"
 
             #Extraemos valores de un objeto producto
             valores = (producto.nombre, producto.descripcion, producto.precio, producto.id_tipo_producto) 
@@ -52,7 +52,7 @@ class ProductoOperaciones:
         conexion = self.db_conexion.get_connection()
         try:
             cursor = conexion.cursor()
-            query = "update Producto set nombre = %s, descripcion=%s, precio=%s, id_tipo_producto=%s, where id= %s"
+            query = "update Producto set nombre = %s, descripcion=%s, precio=%s, id_tipo_producto=%s where id= %s"
             valores = (producto.nombre, producto.descripcion, producto.precio, producto.id_tipo_producto, producto.id)
             cursor.execute(query, valores)
             conexion.commit()

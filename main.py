@@ -27,7 +27,7 @@ def seleccionar_opcion ():
             main_repartidor ()
 
         if seleccionar_opcion =="4":
-            print("Saliendo del programa.")
+            print("Programa finalizado.")
             break
 
 def main_tipo_producto():
@@ -41,7 +41,7 @@ def main_tipo_producto():
         print("2. Listar tipo de producto")
         print("3. Actualizar")
         print("4. Eliminar")
-        print("5. Salir")
+        print("5. Volver al menú principal")
         #capturamos la opcion seleccionada
         opcion= input("Seleccione una opción: ")
 
@@ -59,7 +59,7 @@ def main_tipo_producto():
             
             #en caso de que la operación se ejecute correctamente
             if resultado:
-                print(f"Tipo de Produto ingresado correctamente con ID: {resultado.id_tipo_producto}")
+                print(f"Tipo de Producto ingresado correctamente con ID: {resultado.id_tipo_producto}")
 
         if opcion == "2":
             tipos_productos = operaciones.obtener_datos() #función obtener_datos está definida con el objeto operaciones
@@ -97,7 +97,7 @@ def main_tipo_producto():
 
 
         if opcion == "5":
-            print("El programa ha sido cerrado.")
+            print("Volver al menú principal")
             break
 
 
@@ -112,7 +112,7 @@ def main_producto():
         print("2. Listar producto")
         print("3. Actualizar un producto")
         print("4. Eliminar un producto")
-        print("5. Salir")
+        print("5. Volver al menú principal")
         #capturamos la opcion seleccionada
         opcion= input("Seleccione una opción: ")
 
@@ -132,7 +132,7 @@ def main_producto():
             
             #en caso de que la operación se ejecute correctamente
             if resultado:
-                print(f"Produto ingresado correctamente con ID: {resultado.id}")
+                print(f"Producto ingresado correctamente con ID: {resultado.id}")
 
         if opcion == "2":
             productos = operaciones.listar_datos() #función listar_datos está definida con el objeto operaciones
@@ -174,9 +174,8 @@ def main_producto():
 
 
         if opcion == "5":
-            print(" El programa ha sido cerrado.")
+            print("Volver al menú principal")
             break
-
 
 def main_repartidor():
     operaciones = RepartidorOperaciones()
@@ -187,15 +186,15 @@ def main_repartidor():
         print("2. Listar repartidores")
         print("3. Actualizar Repartidor")
         print("4. Eliminar Repartidor")
-        print("5. Salir")
+        print("5. Volver al menú principal")
 
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
-            rut = input("Rut del repartidor: ")
-            nombre = input("Nombre del repartidor: ")
-            apellidos = input("apellido del repartidor: ")
-            telefono = input("Telefono del repartidor: ")
+            rut = input("Rut: ")
+            nombre = input("Nombre: ")
+            apellidos = input("Apellidos: ")
+            telefono = input("Teléfono: ")
             estado = input("Estado: ")
 
             nuevoRepartidor = Repartidor(rut = rut, nombre = nombre, apellidos = apellidos, telefono = telefono, estado = estado)
@@ -230,7 +229,7 @@ def main_repartidor():
             nuevo_estado = input("Nuevo estado: ")
             repartidor = Repartidor(id = int(id),rut = nuevo_rut, nombre = nuevo_nombre, apellidos = nuevo_apellidos, telefono = nuevo_telefono, estado = nuevo_estado)
             
-            #Verificamos si la operacion devuelve true, lo que indica que actualizó registros
+            #Verificamos si la operacion devuelve true, lo que indica que se actualizaron los registros
             if operaciones.actualizar(repartidor):
                 print("Registros actualizados ")
             else: 
@@ -244,7 +243,7 @@ def main_repartidor():
                 print("El repartidor no se ha podido eliminar.")
 
         if opcion == "5":
-            print("El programa ha sido cerrado.")
+            print("Volver al menú principal")
             break
 
 
