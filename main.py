@@ -82,12 +82,12 @@ def main_tipo_producto():
             descripcion = input("Nueva descripción: ")
             #Creamos un objeto de la clase TipoProducto
             tipo_producto = TipoProducto (id_tipo_producto=int(id), nombre=nombre, descripcion=descripcion) 
-            #Verificamos si la operacion devuelve True lo cual indica que actualizó registros
+            #Verificamos si la operacion devuelve True, lo que indica que se actualizaron los registros
             if operaciones.actualizar(tipo_producto):
                 print("Registro actualizado correctamente")
             else: 
                 print("No se actualizó ningún registro")
-        #En caso de requerir eliminación
+        #En caso de requerir eliminar un registro
         if opcion == "4":
             id_tipo_producto=input("Ingrese id de tipo de producto a eliminar: ")
             if operaciones.eliminar(int(id_tipo_producto)): 
@@ -97,7 +97,7 @@ def main_tipo_producto():
 
 
         if opcion == "5":
-            print("Hasta Luego! ")
+            print("El programa ha sido cerrado.")
             break
 
 
@@ -123,10 +123,9 @@ def main_producto():
             descripcion = input("Descripción: ")
             precio = input("Precio: ")
             id_tipo_producto=input("Tipo Producto: ")
-            proveedor = input("Proveedor: ")
 
             #Creamos un objeto de la clase tipo producto
-            nuevoProducto = Producto(nombre= nombre, descripcion = descripcion, precio=precio, id_tipo_producto=id_tipo_producto, proveedor=proveedor)
+            nuevoProducto = Producto(nombre= nombre, descripcion = descripcion, precio=precio, id_tipo_producto=id_tipo_producto)
             
             # Agregamos registro a la base de datos mediante el objeto de la clase ProductoOperaciones
             resultado = operaciones.agregar(nuevoProducto)
@@ -136,7 +135,7 @@ def main_producto():
                 print(f"Produto ingresado correctamente con ID: {resultado.id}")
 
         if opcion == "2":
-            productos = operaciones.listar_datos() #función obtener_datos está definida con el objeto operaciones
+            productos = operaciones.listar_datos() #función listar_datos está definida con el objeto operaciones
             #Si existen productos los mostramos sino enviamos un mensaje al usuario
             if productos:
                 print("*** Producto registrado ***")
@@ -147,7 +146,6 @@ def main_producto():
                     print(f"DESCRIPCION: {producto.descripcion}")
                     print(f"PRECIO:{producto.precio} ")
                     print(f"ID TIPO PRODUCTO: {producto.id_tipo_producto}")
-                    print(f"PROVEEDOR: {producto.proveedor}")
             else:
                 print("No hay registro del producto")
        
@@ -159,9 +157,8 @@ def main_producto():
             descripcion= input("Nueva descripción: ")
             precio = input ("Ingrese precio actualizado: ")
             id_tipo_producto= input("Ingrese nuevo id tipo producto: ")
-            proveedor= input ("Ingrese nuevo Proveedor: ")
             #Creamos un objeto de la clase Producto
-            producto = Producto (id=int(id), nombre= nombre, descripcion = descripcion, precio=precio, id_tipo_producto=id_tipo_producto, proveedor=proveedor) 
+            producto = Producto (id=int(id), nombre= nombre, descripcion = descripcion, precio=precio, id_tipo_producto=id_tipo_producto)
             #Verificamos si la operacion devuelve True, lo que indica que actualizó registros
             if operaciones.actualizar(producto):
                 print("Registros actualizados ")
@@ -242,13 +239,12 @@ def main_repartidor():
         if opcion == "4":
             id = input("Ingrese el id del repartidor a eliminar: ")
             if operaciones.eliminar(int(id)):
-
                 print("Repartidor eliminado correctamente.")
             else:
                 print("El repartidor no se ha podido eliminar.")
 
         if opcion == "5":
-            print("programa finalizado")
+            print("El programa ha sido cerrado.")
             break
 
 

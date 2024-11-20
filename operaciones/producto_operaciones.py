@@ -13,10 +13,10 @@ class ProductoOperaciones:
             cursor = conexion.cursor() #cursor tiene los objetos de conexión que permite recorrer las tablas
             #Consulta SQL
 
-            query ="insert into Producto (nombre, descripcion, precio, id_tipo_producto, proveedor) values (%s,%s,%s,%s,%s)"
+            query ="insert into Producto (nombre, descripcion, precio, id_tipo_producto, proveedor) values (%s,%s,%s,%s)"
 
             #Extraemos valores de un objeto producto
-            valores = (producto.nombre, producto.descripcion, producto.precio, producto.id_tipo_producto, producto.proveedor) 
+            valores = (producto.nombre, producto.descripcion, producto.precio, producto.id_tipo_producto) 
             #Ejecutamos la operación contra la base de datos (insertar)
             cursor.execute(query, valores)
             #Ejecutamos commit o una confirmación (es para confirmar el cambio y que quede actualizado en la base de datos.)
@@ -52,8 +52,8 @@ class ProductoOperaciones:
         conexion = self.db_conexion.get_connection()
         try:
             cursor = conexion.cursor()
-            query = "update Producto set nombre = %s, descripcion=%s, precio=%s, id_tipo_producto=%s, proveedor=%s where id= %s"
-            valores = (producto.nombre, producto.descripcion, producto.precio, producto.id_tipo_producto, producto.proveedor, producto.id)
+            query = "update Producto set nombre = %s, descripcion=%s, precio=%s, id_tipo_producto=%s, where id= %s"
+            valores = (producto.nombre, producto.descripcion, producto.precio, producto.id_tipo_producto, producto.id)
             cursor.execute(query, valores)
             conexion.commit()
             return cursor.rowcount > 0 
@@ -72,7 +72,7 @@ class ProductoOperaciones:
             conexion.commit ()
             return cursor.rowcount
         except Error as e:
-            print(f"Error al eliminar el tipo de producto: {e}")
+            print(f"Error al eliminar el Producto: {e}")
         finally:
             if cursor:
                 cursor.close()

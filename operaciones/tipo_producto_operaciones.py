@@ -3,7 +3,7 @@ from modelos import TipoProducto
 from db_conexion import DatabaseConnection
 
 class TipoProductoOperaciones:
-    #Función para inicializar una conexión  base de datos.....
+    #Función para inicializar una conexión  base de datos...
     def __init__(self):
         self.db_conexion = DatabaseConnection()
     #Función para agregar un tipo de producto
@@ -48,7 +48,7 @@ class TipoProductoOperaciones:
         finally:
             if cursor:
                 cursor.close()
-    #Función para actuaziar datos
+    #Función para actualizar datos
     def actualizar (self, tipo_producto):
         conexion = self.db_conexion.get_connection()
         try:

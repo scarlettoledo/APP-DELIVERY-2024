@@ -2,7 +2,7 @@ from datetime import datetime
 
 class Repartidor:
     def __init__(self,id = None, rut = "", nombre = "", apellidos = "", telefono = 0.0, estado = "", fecha_ingreso = None):
-        self.id = id
+        self.id = id #número interno de la empresa que se asigna a cada repartidor
         self.rut = rut
         self.nombre = nombre
         self.apellidos = apellidos

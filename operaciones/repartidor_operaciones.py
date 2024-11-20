@@ -16,7 +16,7 @@ class RepartidorOperaciones:
             conexion.commit()
             repartidor.id = cursor.lastrowid
             
-            print("Repartidor se ha ingresado correctamente")
+            print("Repartidor ingresado correctamente")
             return repartidor
         except Error as e:
             print(f"Error al ingresar nuevo repartidor : {e} ")
